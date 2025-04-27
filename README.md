@@ -56,10 +56,15 @@ asha_ai_chatbot/
 │   └── architecture.md             # System architecture documentation
 │
 ├── requirements.txt                # Project dependencies
+├── railway.toml                    # Railway deployment configuration
+├── Procfile                        # Process file for deployment
+├── runtime.txt                     # Python runtime specification
 └── README.md                       # Project overview and setup instructions
 ```
 
 ## Setup and Installation
+
+### Local Development
 
 1. Clone the repository:
    ```
@@ -67,6 +72,11 @@ asha_ai_chatbot/
    cd asha-ai-chatbot
    ```
 
+2. Create a virtual environment and activate it:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
 3. Install dependencies:
    ```
@@ -79,6 +89,38 @@ asha_ai_chatbot/
    python app.py
    ```
    Then open http://localhost:5000 in your browser.
+
+### Deployment to Railway
+
+1. Create a [Railway](https://railway.app/) account if you don't have one.
+
+2. Install the Railway CLI:
+   ```
+   npm i -g @railway/cli
+   ```
+
+3. Login to Railway:
+   ```
+   railway login
+   ```
+
+4. Initialize and link your project:
+   ```
+   railway init
+   railway link
+   ```
+
+5. Set up environment variables (if needed):
+   ```
+   railway variables set GROQ_API_KEY=your_api_key_here
+   ```
+
+6. Deploy your application:
+   ```
+   railway up
+   ```
+
+7. Or, for simpler deployment, push to GitHub and connect your repository in the Railway dashboard.
 
 ## Usage
 
@@ -151,3 +193,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - JobsForHer Foundation for their mission to enable women's career advancement
 - Open-source NLP and AI tools that make this assistant possible
+- [Railway](https://railway.app/) for simplified deployment infrastructure
